@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Type</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="ui.css">   
+</head>
+<body>
+
+    <div class="text-level-1" style="margin-bottom: 80px;">
+        FROM HERE, YOU CAN ENTER FOUR TYPES OF THEATRES
+    </div>
+
+    <div class="options-container">
+        <div class="ui-portfolio-box" onclick="boxClick(this, 'stage_play.html')">
+            <span class="text-level-3">STAGE PLAY</span>
+        </div>
+
+        <div class="ui-portfolio-box" onclick="boxClick(this, 'immersive.html')">
+            <span class="text-level-3">IMMERSIVE<br>THEATRE</span>
+        </div>
+
+        <div class="ui-portfolio-box" onclick="boxClick(this, 'cinema.html')">
+            <span class="text-level-3">CINEMA</span>
+        </div>
+
+        <div class="ui-portfolio-box" onclick="boxClick(this, 'busking.html')">
+            <span class="text-level-3">BUSKING</span>
+        </div>
+    </div>
+
+    <div class="spacer-huge"></div>
+
+    <div class="text-level-2" style="margin-bottom: 30px;">
+        AND HERE’S MY THEATRE DESIGN—EXPLORE IT!
+    </div>
+
+    <div class="toggle-wrapper toggle-light" id="bottomToggle" onclick="toggleAndGo()">
+        <div class="toggle-slider"></div>
+        <span class="toggle-text text-left">YES</span>
+        <span class="toggle-text text-right">GO</span>
+    </div>
+
+    <script>
+        // 方框点击逻辑
+        function boxClick(element, url) {
+            // 1. 变黑
+            element.classList.add('clicked');
+            
+            // 2. 等待 0.3 秒让变黑动画播完，然后真的跳转！
+            setTimeout(function() {
+                window.location.href = url; 
+            }, 300);
+        }
+
+        // 底部按钮逻辑
+        function toggleAndGo() {
+            const toggleBtn = document.getElementById('bottomToggle');
+            toggleBtn.classList.add('active');
+            
+            setTimeout(function() {
+                // 【修改点】这里已经改成了你要的网址
+                window.location.href = 'https://feiyun17.github.io/project1_part1/'; 
+            }, 500);
+        }
+    </script>
+</body>
+</html>

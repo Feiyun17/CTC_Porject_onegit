@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immersive Theatre</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ui.css">
+    <style>
+        /* ====== 页面特定微调 ====== */
+        
+        /* 1. 修复间距问题：强制容器内容靠上排列，而不是两端对齐 */
+        .detail-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start !important; /* 强制靠上 */
+            gap: 50px; /* 每一行之间的固定距离，你可以改成 40px 或 60px */
+            min-height: 100vh; /* 保证背景铺满 */
+        }
+
+        /* 2. 图片框大小调整 (保持和你上一页一致) */
+        .detail-img-box, .detail-info-box {
+            width: 16.5%; 
+        }
+
+        /* 3. 行内元素居中 */
+        .detail-row {
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        /* 4. 给底部文字区域单独加一点上边距，防止贴得太近 */
+        .detail-footer-section {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="detail-header">IMMERSIVE THEATRE</div>
+
+    <div class="detail-container">
+        
+        <div class="detail-row">
+            <div class="detail-img-box"><img src="im1.jpg" alt="Traditional Immersive Photo"></div>
+            <div class="detail-img-box"><img src="im11.jpg" alt="Traditional Immersive Axonometric"></div>
+            <div class="detail-img-box"><img src="im12.jpg" alt="Traditional Immersive Plan"></div>   
+            
+            <div class="detail-info-box">
+                <div class="box-title">Type 1: Traditional Immersive Theatre</div>
+                <div class="box-text">
+                    Performances take place in non-traditional venues.<br>
+                    Spaces such as warehouses, factories, or historic buildings are commonly used.<br>
+                    The audience moves freely and interacts with scenes and performers.
+                </div>
+            </div>
+        </div> 
+
+        <div class="detail-row">
+            <div class="detail-img-box"><img src="im2.jpg" alt="Intimate Immersive Photo"></div>
+            <div class="detail-img-box"><img src="im21.jpg" alt="Intimate Immersive Axonometric"></div>
+            <div class="detail-img-box"><img src="im22.jpg" alt="Intimate Immersive Plan"></div>
+            
+            <div class="detail-info-box">
+                <div class="box-title">Type 2: Intimate Immersive Stage</div>
+                <div class="box-text">
+                    Held in small venues with flexible layouts.<br>
+                    Audience members remain very close to the performers.<br>
+                    The experience often feels personal and direct.
+                </div>
+            </div>
+        </div> 
+
+        <div class="detail-footer-section">
+            <p class="detail-footer-text">
+                Immersive theatre takes place outside traditional theatre spaces.<br>
+                Instead of sitting and watching, audiences move through the performance environment.<br>
+                Each viewer experiences the story differently through interaction and exploration.
+            </p>
+            <a href="page2.html" class="back-link">← Back to Selection</a>
+        </div>
+        
+    </div>
+</body>
+</html>

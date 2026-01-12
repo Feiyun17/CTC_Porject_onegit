@@ -1,0 +1,74 @@
+/* style.css - 文字排版 */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Microsoft JhengHei', 'Microsoft YaHei', sans-serif;
+    color: #000000;
+    
+    /* 默认布局 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* 垂直居中 */
+    
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+/* 黑色主题 (Page 1 用) */
+body.dark-mode {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* ====== 标题等级 ====== */
+/* 你的设计图中标题都是全大写，所以这里加了 text-transform: uppercase */
+
+.text-level-1 {
+    font-size: 2.2rem;     /* 稍微调小一点点以适应长句 */
+    font-weight: 900;
+    text-align: center;
+    width: 90%;            /* 防止太宽贴边 */
+    margin-bottom: 60px;
+    text-transform: uppercase; /* 强制大写 */
+    line-height: 1.3;
+}
+
+.text-level-2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-align: center;
+    width: 90%;
+    margin-bottom: 40px;
+    text-transform: uppercase; /* 强制大写 */
+}
+
+.text-level-3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.4;
+    text-align: center;
+    margin: 0;
+    text-transform: uppercase; /* 方框里的字也大写 */
+}
+
+/* Page 1 组合标题 */
+.title-group {
+    display: flex;
+    align-items: baseline; 
+    gap: 15px;             
+    flex-wrap: wrap;       
+    justify-content: center;
+    margin-bottom: 100px; 
+}
+.title-thin {
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+.title-thick {
+    font-size: 4rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
