@@ -1,64 +1,54 @@
-/* 选项方框容器 */
+/* 1. 首页和选项页 */
 .options-container {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: flex;        /* 横向排列 */
+    gap: 40px;            /* 间距 */
+    flex-wrap: wrap;      /* 换行 */
+    justify-content: center; 
     width: 100%;
     max-width: 1200px;
 }
 
-
-/* 选项方框 */
 .ui-portfolio-box {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
+    justify-content: center; 
+    align-items: center;   
     width: 200px;
     height: 120px;
-
-    background-color: #ffffff;
-    border: 1.5px solid #000000;
+    background-color: #fff;
+    border: 1.5px solid #000;
     border-radius: 0;
-
     text-decoration: none;
-    color: #000000;
+    color: #000;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s, color 0.3s;
     user-select: none;
     box-sizing: border-box;
 }
 
-.ui-portfolio-box:hover {
-    background-color: #f0f0f0;
-}
+.ui-portfolio-box:hover { background-color: #f0f0f0; }
 
 .ui-portfolio-box.clicked {
-    background-color: #000000 !important;
-    color: #ffffff !important;
-    border-color: #000000;
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
 }
 
-.ui-portfolio-box.clicked .text-level-3 {
-    color: #ffffff !important;
-}
+.ui-portfolio-box.clicked .text-level-3 { color: #fff; }
 
 
-/* 滑动开关 */
+/* 2. 滑动开关 */
 .toggle-wrapper {
     position: relative;
     width: 140px;
     height: 44px;
     border-radius: 50px;
     cursor: pointer;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 4px;
-
+    box-sizing: border-box;
     overflow: hidden;
     user-select: none;
     z-index: 10;
@@ -68,108 +58,95 @@
     position: absolute;
     top: 3px;
     left: 4px;
-
     width: 66px;
     height: 36px;
     border-radius: 50px;
-
     transition: left 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 0;
 }
 
-.toggle-wrapper.active .toggle-slider {
-    left: 68px;
-}
+.toggle-wrapper.active .toggle-slider { left: 68px; }
 
 .toggle-text {
+    position: relative;
+    z-index: 1;
     width: 50%;
     text-align: center;
     font-size: 1rem;
     font-weight: bold;
+    transition: color 0.3s;
     line-height: 44px;
-    position: relative;
-    z-index: 1;
 }
 
+/* 暗色模式 */
+.toggle-dark { border: 2px solid #fff; background: transparent; }
+.toggle-dark .toggle-slider { background: #fff; }
+.toggle-dark .text-left { color: #000 !important; }
+.toggle-dark .text-right { color: #fff !important; }
+.toggle-dark.active .text-left { color: #fff !important; }
+.toggle-dark.active .text-right { color: #000 !important; }
 
-/* 深色 / 浅色 */
-.toggle-dark {
-    border: 2px solid #ffffff;
-}
-.toggle-dark .toggle-slider { background-color: #ffffff; }
-.toggle-dark .text-left { color: #000000 !important; }
-.toggle-dark .text-right { color: #ffffff !important; }
-.toggle-dark.active .text-left { color: #ffffff !important; }
-.toggle-dark.active .text-right { color: #000000 !important; }
-
-.toggle-light {
-    border: 2px solid #000000;
-}
-.toggle-light .toggle-slider { background-color: #000000; }
-.toggle-light .text-left { color: #ffffff !important; }
-.toggle-light .text-right { color: #000000 !important; }
-.toggle-light.active .text-left { color: #000000 !important; }
-.toggle-light.active .text-right { color: #ffffff !important; }
+/* 亮色模式 */
+.toggle-light { border: 2px solid #000; background: transparent; }
+.toggle-light .toggle-slider { background: #000; }
+.toggle-light .text-left { color: #fff !important; }
+.toggle-light .text-right { color: #000 !important; }
+.toggle-light.active .text-left { color: #000 !important; }
+.toggle-light.active .text-right { color: #fff !important; }
 
 
-/* 间距块 */
+/* 3. 间距 */
 .spacer-huge { height: 35vh; min-height: 300px; width: 100%; }
 .spacer-medium { height: 200px; width: 100%; }
 .spacer-large { height: 120px; width: 100%; }
 
 
-/* 详情页标题 */
+/* 4. 详情页 */
 .detail-header {
     width: 100%;
-    background-color: #000000;
-    color: #ffffff;
-
+    background: #000;
+    color: #fff;
     padding: 30px 0;
     text-align: center;
-
     font-size: 2.5rem;
     font-weight: 900;
+    text-transform: uppercase;
     letter-spacing: 2px;
-
     margin-bottom: 60px;
 }
 
-
-/* 详情页主体 */
 .detail-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    gap: 40px;
-
+    justify-content: flex-start; 
+    gap: 40px; 
     min-height: 100vh;
-    padding-bottom: 50px;
+    padding-bottom: 50px; 
 }
 
 .detail-row {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-start; 
     gap: 30px;
     flex-wrap: wrap;
 }
 
-
-/* 图片 / 文字框 */
-.detail-img-box,
+.detail-img-box, 
 .detail-info-box {
-    width: 16.5%;
-    aspect-ratio: 1 / 1;
-    border: 1px solid #000000;
+    width: 16.5%;         
+    aspect-ratio: 1 / 1;  
+    border: 1px solid #000;
+    box-sizing: border-box;
 }
 
 .detail-img-box {
-    background-color: #f9f9f9;
+    background: #f9f9f9;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }
-
 .detail-img-box img {
     width: 100%;
     height: 100%;
@@ -177,80 +154,75 @@
 }
 
 .detail-info-box {
-    border-color: #cccccc;
-    background-color: #ffffff;
-
+    border: 1px solid #ccc;
+    background: #fff;
     display: flex;
-    flex-direction: column;
-    padding: 20px;
-    overflow: hidden;
+    flex-direction: column; 
+    padding: 20px;          
+    overflow: hidden;  
 }
 
-
-/* 标题不滚动 */
 .box-title {
     font-weight: bold;
     font-size: 0.95rem;
-    margin-bottom: 15px;
+    line-height: 1.3;
+    color: #000;
+    margin-bottom: 15px;    
     flex-shrink: 0;
+    width: 100%;
 }
 
-/* 正文滚动 */
 .box-text {
     font-size: 0.85rem;
     line-height: 1.5;
-    flex-grow: 1;
-    overflow-y: auto;
-    padding-right: 5px;
+    color: #333;
+    flex-grow: 1;           
+    overflow-y: auto;       
+    padding-right: 5px;     
 }
 
 .box-text::-webkit-scrollbar {
-    width: 4px;
+    width: 4px; 
 }
 .box-text::-webkit-scrollbar-thumb {
-    background-color: #ccc;
+    background: #ccc;
+    border-radius: 4px;
 }
 
-
-/* 底部 */
 .detail-footer-text {
     max-width: 800px;
     text-align: center;
     font-size: 1.1rem;
-    margin: 0 auto 60px;
+    line-height: 1.6;
+    margin: 0 auto 60px auto;
 }
 
 .back-link {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-
     font-size: 1.2rem;
-    color: #000000;
+    color: #000;
     text-decoration: none;
-    border-bottom: 2px solid #000000;
+    border-bottom: 2px solid #000;
     padding-bottom: 5px;
-
-    transition: all 0.3s ease;
+    transition: all 0.3s;
+    margin-bottom: 60px;
 }
-
 .back-link:hover {
     color: #555;
     border-color: #555;
     gap: 15px;
 }
 
-
-/* footer 垂直排 */
 .detail-footer-section {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    margin-top: 40px;
+    flex-direction: column; 
+    align-items: center;    
+    gap: 30px;              
+    width: 100%;
+    margin-top: 40px;       
 }
 
-.detail-footer-section .detail-footer-text,
-.detail-footer-section .back-link {
-    margin: 0;
-}
+.detail-footer-section .detail-footer-text { margin: 0; }
+.detail-footer-section .back-link { margin: 0; }
