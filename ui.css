@@ -1,12 +1,15 @@
+/* 选项方框容器 */
 .options-container {
     display: flex;
-    gap: 40px;              /* 卡片之间的间距 */
-    flex-wrap: wrap;        /* 小屏自动换行 */
+    gap: 40px;
+    flex-wrap: wrap;
     justify-content: center;
     width: 100%;
     max-width: 1200px;
 }
 
+
+/* 选项方框 */
 .ui-portfolio-box {
     display: flex;
     flex-direction: column;
@@ -15,40 +18,40 @@
 
     width: 200px;
     height: 120px;
+
     background-color: #ffffff;
-    border: 1.5px solid #000000; /* 稍微粗一点的边框 */
-    border-radius: 0;            /* 保持直角 */
+    border: 1.5px solid #000000;
+    border-radius: 0;
 
     text-decoration: none;
     color: #000000;
     cursor: pointer;
-
     transition: background-color 0.3s ease, color 0.3s ease;
     user-select: none;
     box-sizing: border-box;
 }
 
 .ui-portfolio-box:hover {
-    background-color: #f0f0f0;   /* 悬停反馈 */
+    background-color: #f0f0f0;
 }
 
 .ui-portfolio-box.clicked {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #000000 !important;
+    color: #ffffff !important;
     border-color: #000000;
 }
 
 .ui-portfolio-box.clicked .text-level-3 {
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
-/* ===== 开关 Toggle ===== */
 
+/* 滑动开关 */
 .toggle-wrapper {
     position: relative;
     width: 140px;
     height: 44px;
-    border-radius: 50px;    /* 胶囊形 */
+    border-radius: 50px;
     cursor: pointer;
 
     display: flex;
@@ -71,71 +74,50 @@
     border-radius: 50px;
 
     transition: left 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    z-index: 0;
 }
 
 .toggle-wrapper.active .toggle-slider {
-    left: 68px;             /* 滑到右边 */
+    left: 68px;
 }
 
 .toggle-text {
-    position: relative;
-    z-index: 1;
     width: 50%;
     text-align: center;
-
     font-size: 1rem;
     font-weight: bold;
     line-height: 44px;
-
-    transition: color 0.3s ease;
+    position: relative;
+    z-index: 1;
 }
 
-/* 暗色模式 */
+
+/* 深色 / 浅色 */
 .toggle-dark {
     border: 2px solid #ffffff;
-    background-color: transparent;
 }
+.toggle-dark .toggle-slider { background-color: #ffffff; }
+.toggle-dark .text-left { color: #000000 !important; }
+.toggle-dark .text-right { color: #ffffff !important; }
+.toggle-dark.active .text-left { color: #ffffff !important; }
+.toggle-dark.active .text-right { color: #000000 !important; }
 
-.toggle-dark .toggle-slider {
-    background-color: #ffffff;
-}
-
-.toggle-dark .text-left  { color: #000000; }
-.toggle-dark .text-right { color: #ffffff; }
-
-.toggle-dark.active .text-left  { color: #ffffff; }
-.toggle-dark.active .text-right { color: #000000; }
-
-/* 浅色模式 */
 .toggle-light {
     border: 2px solid #000000;
-    background-color: transparent;
 }
+.toggle-light .toggle-slider { background-color: #000000; }
+.toggle-light .text-left { color: #ffffff !important; }
+.toggle-light .text-right { color: #000000 !important; }
+.toggle-light.active .text-left { color: #000000 !important; }
+.toggle-light.active .text-right { color: #ffffff !important; }
 
-.toggle-light .toggle-slider {
-    background-color: #000000;
-}
 
-.toggle-light .text-left  { color: #ffffff; }
-.toggle-light .text-right { color: #000000; }
-
-.toggle-light.active .text-left  { color: #000000; }
-.toggle-light.active .text-right { color: #ffffff; }
-
-/* ===== 页面留白 ===== */
-
-.spacer-huge {
-    height: 35vh;
-    min-height: 300px;
-    width: 100%;
-}
-
+/* 间距块 */
+.spacer-huge { height: 35vh; min-height: 300px; width: 100%; }
 .spacer-medium { height: 200px; width: 100%; }
-.spacer-large  { height: 120px; width: 100%; }
+.spacer-large { height: 120px; width: 100%; }
 
-/* ===== 详情页 ===== */
 
+/* 详情页标题 */
 .detail-header {
     width: 100%;
     background-color: #000000;
@@ -151,10 +133,13 @@
     margin-bottom: 60px;
 }
 
+
+/* 详情页主体 */
 .detail-container {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    justify-content: flex-start;
+    gap: 40px;
 
     min-height: 100vh;
     padding-bottom: 50px;
@@ -168,12 +153,13 @@
     flex-wrap: wrap;
 }
 
+
+/* 图片 / 文字框 */
 .detail-img-box,
 .detail-info-box {
-    width: 16.5%;          /* 一排六个 */
+    width: 16.5%;
     aspect-ratio: 1 / 1;
     border: 1px solid #000000;
-    box-sizing: border-box;
 }
 
 .detail-img-box {
@@ -191,7 +177,7 @@
 }
 
 .detail-info-box {
-    border: 1px solid #cccccc;
+    border-color: #cccccc;
     background-color: #ffffff;
 
     display: flex;
@@ -200,17 +186,40 @@
     overflow: hidden;
 }
 
-/* 滚动条 */
+
+/* 标题不滚动 */
+.box-title {
+    font-weight: bold;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    flex-shrink: 0;
+}
+
+/* 正文滚动 */
+.box-text {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
 .box-text::-webkit-scrollbar {
     width: 4px;
 }
-
 .box-text::-webkit-scrollbar-thumb {
     background-color: #ccc;
-    border-radius: 4px;
 }
 
-/* 返回链接 */
+
+/* 底部 */
+.detail-footer-text {
+    max-width: 800px;
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 0 auto 60px;
+}
+
 .back-link {
     display: inline-flex;
     align-items: center;
@@ -219,7 +228,6 @@
     font-size: 1.2rem;
     color: #000000;
     text-decoration: none;
-
     border-bottom: 2px solid #000000;
     padding-bottom: 5px;
 
@@ -230,4 +238,19 @@
     color: #555;
     border-color: #555;
     gap: 15px;
+}
+
+
+/* footer 垂直排 */
+.detail-footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.detail-footer-section .detail-footer-text,
+.detail-footer-section .back-link {
+    margin: 0;
 }
