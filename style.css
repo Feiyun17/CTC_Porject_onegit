@@ -1,3 +1,8 @@
+/* =========================================
+   页面基础设置 / Body & 基本排版
+   注：整体保持居中，简洁硬朗
+========================================= */
+
 body {
     margin: 0;
     min-height: 100vh;
@@ -11,11 +16,13 @@ body {
     padding-bottom: 60px;
 }
 
+/* 深色模式 */
 body.dark-mode {
     background-color: #000000;
     color: #ffffff;
 }
 
+/* 一级文字样式，大标题用 */
 .text-level-1 {
     font-size: 2.2rem;
     font-weight: 900;
@@ -26,6 +33,7 @@ body.dark-mode {
     line-height: 1.3;
 }
 
+/* 二级文字，副标题或小标题 */
 .text-level-2 {
     font-size: 1.8rem;
     font-weight: 800;
@@ -35,6 +43,7 @@ body.dark-mode {
     text-transform: uppercase;
 }
 
+/* 三级文字，内容描述或者小标签 */
 .text-level-3 {
     font-size: 1.2rem;
     font-weight: bold;
@@ -44,6 +53,7 @@ body.dark-mode {
     text-transform: uppercase;
 }
 
+/* 标题组合，方便放几个标题一起排版 */
 .title-group {
     display: flex;
     align-items: baseline;
@@ -53,12 +63,14 @@ body.dark-mode {
     margin-bottom: 100px;
 }
 
+/* 字体偏细的标题 */
 .title-thin {
     font-size: 2rem;
     font-weight: 300;
     letter-spacing: 2px;
 }
 
+/* 字体偏粗的标题 */
 .title-thick {
     font-size: 4rem;
     font-weight: 900;
