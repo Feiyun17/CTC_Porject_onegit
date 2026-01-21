@@ -1,13 +1,7 @@
-/* =========================================
-   页面整体布局 / Layout
-   注：整体风格偏硬朗，避免柔和的网页感。
-========================================= */
-
 .options-container {
     display: flex;
-    /* 本来想用 grid，但 flex 在这里更方便控制换行后的居中 */
-    gap: 40px; /* 40px 间距模仿展馆陈列感，别动 */
-    flex-wrap: wrap;
+    gap: 40px;              /* 卡片之间的间距 */
+    flex-wrap: wrap;        /* 小屏自动换行 */
     justify-content: center;
     width: 100%;
     max-width: 1200px;
@@ -18,55 +12,50 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
     width: 200px;
     height: 120px;
     background-color: #ffffff;
-
-    /* 边框加粗到 1.5px，看起来更稳实，像建筑体块 */
-    border: 1.5px solid #000000;
-
-    /* 保持直角，Brutalist 风格 */
-    border-radius: 0px;
+    border: 1.5px solid #000000; /* 稍微粗一点的边框 */
+    border-radius: 0;            /* 保持直角 */
 
     text-decoration: none;
     color: #000000;
     cursor: pointer;
+
     transition: background-color 0.3s ease, color 0.3s ease;
     user-select: none;
     box-sizing: border-box;
 }
 
 .ui-portfolio-box:hover {
-    /* 鼠标悬停给点反馈，不要太夸张 */
-    background-color: #f0f0f0;
+    background-color: #f0f0f0;   /* 悬停反馈 */
 }
 
-/* 点击后的状态 */
 .ui-portfolio-box.clicked {
-    background-color: #000000 !important;
-    color: #ffffff !important;
+    background-color: #000000;
+    color: #ffffff;
     border-color: #000000;
 }
 
 .ui-portfolio-box.clicked .text-level-3 {
-    color: #ffffff !important;
+    color: #ffffff;
 }
 
-/* =========================================
-   开关控件 / Toggle
-========================================= */
+/* ===== 开关 Toggle ===== */
 
 .toggle-wrapper {
     position: relative;
     width: 140px;
     height: 44px;
-    border-radius: 50px; /* 胶囊形开关 */
+    border-radius: 50px;    /* 胶囊形 */
     cursor: pointer;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 4px;
-    box-sizing: border-box;
+
     overflow: hidden;
     user-select: none;
     z-index: 10;
@@ -76,19 +65,17 @@
     position: absolute;
     top: 3px;
     left: 4px;
+
     width: 66px;
     height: 36px;
     border-radius: 50px;
 
-    /* 贝塞尔曲线调整回弹感，像真实开关 */
     transition: left 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-
     z-index: 0;
 }
 
 .toggle-wrapper.active .toggle-slider {
-    /* 刚好滑到右边 */
-    left: 68px;
+    left: 68px;             /* 滑到右边 */
 }
 
 .toggle-text {
@@ -96,10 +83,12 @@
     z-index: 1;
     width: 50%;
     text-align: center;
+
     font-size: 1rem;
     font-weight: bold;
-    transition: color 0.3s ease;
     line-height: 44px;
+
+    transition: color 0.3s ease;
 }
 
 /* 暗色模式 */
@@ -107,58 +96,66 @@
     border: 2px solid #ffffff;
     background-color: transparent;
 }
-.toggle-dark .toggle-slider { background-color: #ffffff; }
-.toggle-dark .text-left { color: #000000 !important; }
-.toggle-dark .text-right { color: #ffffff !important; }
-.toggle-dark.active .text-left { color: #ffffff !important; }
-.toggle-dark.active .text-right { color: #000000 !important; }
+
+.toggle-dark .toggle-slider {
+    background-color: #ffffff;
+}
+
+.toggle-dark .text-left  { color: #000000; }
+.toggle-dark .text-right { color: #ffffff; }
+
+.toggle-dark.active .text-left  { color: #ffffff; }
+.toggle-dark.active .text-right { color: #000000; }
 
 /* 浅色模式 */
 .toggle-light {
     border: 2px solid #000000;
     background-color: transparent;
 }
-.toggle-light .toggle-slider { background-color: #000000; }
-.toggle-light .text-left { color: #ffffff !important; }
-.toggle-light .text-right { color: #000000 !important; }
-.toggle-light.active .text-left { color: #000000 !important; }
-.toggle-light.active .text-right { color: #ffffff !important; }
 
-/* =========================================
-   页面间隔 / Spacers
-   用于控制页面节奏
-========================================= */
-
-.spacer-huge { 
-    height: 35vh; /* 适应不同屏幕高度 */
-    min-height: 300px; 
-    width: 100%; 
+.toggle-light .toggle-slider {
+    background-color: #000000;
 }
-.spacer-medium { height: 200px; width: 100%; }
-.spacer-large { height: 120px; width: 100%; }
 
-/* =========================================
-   详情页 / Manifest
-========================================= */
+.toggle-light .text-left  { color: #ffffff; }
+.toggle-light .text-right { color: #000000; }
+
+.toggle-light.active .text-left  { color: #000000; }
+.toggle-light.active .text-right { color: #ffffff; }
+
+/* ===== 页面留白 ===== */
+
+.spacer-huge {
+    height: 35vh;
+    min-height: 300px;
+    width: 100%;
+}
+
+.spacer-medium { height: 200px; width: 100%; }
+.spacer-large  { height: 120px; width: 100%; }
+
+/* ===== 详情页 ===== */
 
 .detail-header {
     width: 100%;
     background-color: #000000;
     color: #ffffff;
+
     padding: 30px 0;
     text-align: center;
+
     font-size: 2.5rem;
     font-weight: 900;
-    text-transform: uppercase;
     letter-spacing: 2px;
+
     margin-bottom: 60px;
 }
 
 .detail-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     gap: 50px;
+
     min-height: 100vh;
     padding-bottom: 50px;
 }
@@ -166,14 +163,14 @@
 .detail-row {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* 顶部对齐，避免盒子塌陷 */
+    align-items: flex-start;
     gap: 30px;
     flex-wrap: wrap;
 }
 
 .detail-img-box,
 .detail-info-box {
-    width: 16.5%; /* 六等分，留点 gap */
+    width: 16.5%;          /* 一排六个 */
     aspect-ratio: 1 / 1;
     border: 1px solid #000000;
     box-sizing: border-box;
@@ -195,36 +192,42 @@
 
 .detail-info-box {
     border: 1px solid #cccccc;
-    background-color: #fff;
+    background-color: #ffffff;
+
     display: flex;
     flex-direction: column;
     padding: 20px;
     overflow: hidden;
 }
 
-/* 美化滚动条 */
+/* 滚动条 */
 .box-text::-webkit-scrollbar {
     width: 4px;
 }
+
 .box-text::-webkit-scrollbar-thumb {
     background-color: #ccc;
     border-radius: 4px;
 }
 
+/* 返回链接 */
 .back-link {
     display: inline-flex;
     align-items: center;
     gap: 10px;
+
     font-size: 1.2rem;
     color: #000000;
     text-decoration: none;
+
     border-bottom: 2px solid #000000;
     padding-bottom: 5px;
+
     transition: all 0.3s ease;
 }
 
 .back-link:hover {
     color: #555;
     border-color: #555;
-    gap: 15px; /* hover 时箭头右移一点 */
+    gap: 15px;
 }

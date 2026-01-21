@@ -3,35 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>兴趣调查 / Interest Check</title>
+    <title>Interest Check</title>
 
-    <!-- 样式表 -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="ui.css">
 </head>
 
 <body class="dark-mode">
 
-    <!-- 页首标题组 -->
     <header class="title-group">
         <span class="title-thin">ARE YOU INTERESTED IN</span>
         <span class="title-thick">THEATER</span>
     </header>
 
-    <!-- 开关控件 -->
     <div class="toggle-wrapper toggle-dark" id="myToggle">
         <div class="toggle-slider"></div>
         <span class="toggle-text text-left">YES</span>
         <span class="toggle-text text-right">GO</span>
     </div>
 
-    <!-- 点击开关后的跳转逻辑 -->
     <script>
+        // click → animate → next page
         document.getElementById('myToggle').addEventListener('click', function () {
             this.classList.add('active');
-
-            // 半秒后跳转到下一页
-            setTimeout(function () {
+            setTimeout(() => {
                 window.location.href = 'page2.html';
             }, 500);
         });
